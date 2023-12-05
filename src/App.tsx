@@ -2,7 +2,7 @@ import DocumentView from "./DocumentView";
 
 function App() {
   return <>
-    <DocumentView/ >
+    <DocumentView />
   </>
 };
 

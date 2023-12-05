@@ -10,7 +10,7 @@ export default function Cell(props: {
 			margin: 8px 0px; 
 			padding: 8px;
 		"
-		onInput={(e) => onContentEdit(e.currentTarget.textContent)}
+		onInput={(e) => props.onContentEdit(e.currentTarget.innerText!)}
 	>
 		{props.text}
 	</div>
