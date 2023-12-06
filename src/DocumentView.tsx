@@ -10,9 +10,10 @@ export default function DocumentView() {
 	const [title, setTitle] = createSignal("Untitled");
 	const [cells, setCells] = createStore([{ text: "hello" }, { text: "world"}]);
 
+	//console.log(cells);
+
 	const updateText = (idx: number, newText: string) => {
-		setCells(cells.with(idx, { text: newText }));
-		// console.log(newText);
+		setCells(idx, "text", newText);
 	}
 
 	return <>
