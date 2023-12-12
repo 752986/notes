@@ -2,11 +2,16 @@ import "./cell.css"
 
 export default function Cell(props: {
 	text: string,
-	onContentEdit: (newContent: string) => void
+	idx: number,
+	onContentEdit: (idx: number, newContent: string) => void
+	removeCell: (idx: number) => void
 }) {
-	return <input 
-		class="cell"
-		value={props.text}
-		onInput={(e) => props.onContentEdit(e.currentTarget.value!)}
-	></input>
+	return <>
+		<button onClick={props.removeCell.bind(null, props.idx)}>X</button>
+		<input 
+			class="cell"
+			value={props.text}
+			onInput={(e) => props.onContentEdit(props.idx, e.currentTarget.value!)}
+		></input>
+	</>
 }

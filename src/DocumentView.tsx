@@ -15,10 +15,14 @@ export default function DocumentView() {
 		// console.log(`[${idx}] ${newText}`);
 	}
 
+	const removeCell = (idx: number) => {
+		setCells(cells.filter((_, i) => i != idx));
+	}
+
 	return <>
 		<h1>{title()}</h1>
 		<For each={cells}>{(cellText, i) => 
-			<Cell text={cellText.text} onContentEdit={updateText.bind(null, i())} />
+			<Cell text={cellText.text} idx={i()} onContentEdit={updateText} removeCell={removeCell} />
 		}</For>
 		<button onClick={(e) => setCells(cells.concat({ text: "" }))}>Add Cell</button>
 	</>
